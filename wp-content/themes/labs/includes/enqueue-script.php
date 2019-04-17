@@ -22,9 +22,9 @@ class enqueueScripts {
         wp_enqueue_script('jquery-labs', get_template_directory_uri() . '/js/jquery-2.1.4.min.js');
         wp_enqueue_script('bootstrap-labs', get_template_directory_uri() . '/js/bootstrap.min.js');
         wp_enqueue_script('magnific-popup-labs', get_template_directory_uri() . '/js/magnific-popup.min.js');
-        wp_enqueue_script('owl-labs', get_template_directory_uri() . '/js/owl.carousel.min.js', [jquery-labs]);
-        wp_enqueue_script('circle-progress-labs', get_template_directory_uri() . '/js/circle-progress.min.js');
-        wp_enqueue_script('main-labs', get_template_directory_uri() . '/js/main.js', [jquery-labs]);
+        wp_enqueue_script('owl-labs', get_template_directory_uri() . '/js/owl.carousel.min.js', ['bootstrap-labs'], null, true);
+        wp_enqueue_script('circle-progress-labs', get_template_directory_uri() . '/js/circle-progress.min.js', ['jquery-labs']);
+        wp_enqueue_script('main-labs', get_template_directory_uri() . '/js/main.js', ['jquery-labs'], null, true);
         wp_enqueue_script('personal-javascript-labs', get_template_directory_uri() . '/js/personal-javascript.js');
     }
 }

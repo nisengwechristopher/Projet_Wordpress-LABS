@@ -2,7 +2,7 @@
   <div class="hero-section">
     <div class="hero-content">
       <div class="hero-center">
-        <img src="wp-content/themes/labs/templates/intro_section.php" alt="">
+        <img src="<?= LABS_IMG . 'big-logo.png'?>" alt="">
         <p>Get your freebie template now!</p>
       </div>
     </div>
