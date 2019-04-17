@@ -1,4 +1,7 @@
-#labs_logo{
-    height: 30px;
-    width: 30px;
+/* taille pour le logo du site */
+.logo_size {
+    max-width: 111px;
+    max-height:32px;
 }
+
+/* pour assigner la classe "active" seulement au li active */

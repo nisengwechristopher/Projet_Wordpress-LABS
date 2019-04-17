@@ -23,8 +23,13 @@
   <!-- Page Preloder -->
   <div id="preloder">
     <div class="loader">
-      <img src="<?= 'wp-content/themes/labs/img/logo.png'?> alt="">
-      <h2>Loading.....</h2>
+       <!-- Pour le changement de l'icone sur dans preload-->
+      <?php
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $image = wp_get_attachment_image_src( $custom_logo_id , 'thumbnail', true );
+      ?>
+      <img class="logo_size" src="<?php echo $image[0]; ?>" alt="">
+      <h2>Loading...</h2>
     </div>
   </div>
 
@@ -33,19 +38,23 @@
   <header class="header-section">
     <div class="logo">
       <!-- Logo -->
-      <a id= "labs_logo" href="<?= get_site_url() ?>"><img src="<?= 'wp-content/themes/labs/img/logo.png'?>" alt=""></a>
+      <a href="<?= get_site_url() ?>">
+       <!-- Pour le changement de l'icone sur le site -->
+        <img class="logo_size" src="<?php echo $image[0]; ?>" alt="">
+      </a>
     </div>
+
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
-    <nav>
-      <ul class="menu-list">
-        <li class="active"><a href="home.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="elements.html">Elements</a></li>
-      </ul>
-    </nav>
+    <!-- Nouveau menu -->
+    <?php
+      wp_nav_menu([
+        'container' => '',
+        'theme_location' => 'menu-principal',
+        'menu_class' => 'menu-list',
+        'add_li_class' => 'nav-item'
+      ]);
+    ?>
   </header>
   <!-- Header section end -->
 
