@@ -6,7 +6,7 @@
 					<!-- Post item -->
 					<div class="post-item">
 						<div class="post-thumbnail">
-							<img src="img/blog/blog-2.jpg" alt="">
+							<img src="<?= LABS_IMG . 'blog/blog-2.jpg'?>" alt="">
 							<div class="post-date">
 								<h2>03</h2>
 								<h3>Nov 2017</h3>
@@ -26,7 +26,7 @@
 					<!-- Post item -->
 					<div class="post-item">
 						<div class="post-thumbnail">
-							<img src="img/blog/blog-1.jpg" alt="">
+							<img src="<?= LABS_IMG . 'blog/blog-1.jpg'?>" alt="">
 							<div class="post-date">
 								<h2>03</h2>
 								<h3>Nov 2017</h3>
@@ -46,7 +46,7 @@
 					<!-- Post item -->
 					<div class="post-item">
 						<div class="post-thumbnail">
-							<img src="img/blog/blog-3.jpg" alt="">
+							<img src="<?= LABS_IMG . 'blog/blog-3.jpg'?>" alt="">
 							<div class="post-date">
 								<h2>03</h2>
 								<h3>Nov 2017</h3>
@@ -95,12 +95,12 @@
 					<div class="widget-item">
 						<h2 class="widget-title">Instagram</h2>
 						<ul class="instagram">
-							<li><img src="img/instagram/1.jpg" alt=""></li>
-							<li><img src="img/instagram/2.jpg" alt=""></li>
-							<li><img src="img/instagram/3.jpg" alt=""></li>
-							<li><img src="img/instagram/4.jpg" alt=""></li>
-							<li><img src="img/instagram/5.jpg" alt=""></li>
-							<li><img src="img/instagram/6.jpg" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/1.jpg'?>" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/2.jpg'?>" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/3.jpg'?>" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/4.jpg'?>" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/5.jpg'?>" alt=""></li>
+							<li><img src="<?= LABS_IMG . 'instagram/6.jpg'?>" alt=""></li>
 						</ul>
 					</div>
 					<!-- Single widget -->
@@ -128,7 +128,7 @@
 					<div class="widget-item">
 						<h2 class="widget-title">Add</h2>
 						<div class="add">
-							<a href=""><img src="img/add.jpg" alt=""></a>
+							<a href=""><img src="<?= LABS_IMG . 'add.jpg'?>" alt=""></a>
 						</div>
 					</div>
 				</div>

@@ -24,7 +24,7 @@ class enqueueScripts {
         wp_enqueue_script('magnific-popup-labs', get_template_directory_uri() . '/js/magnific-popup.min.js');
         wp_enqueue_script('owl-labs', get_template_directory_uri() . '/js/owl.carousel.min.js', [jquery-labs]);
         wp_enqueue_script('circle-progress-labs', get_template_directory_uri() . '/js/circle-progress.min.js');
-        wp_enqueue_script('main-labs', get_template_directory_uri() . '/js/main.js');
+        wp_enqueue_script('main-labs', get_template_directory_uri() . '/js/main.js', [jquery-labs]);
         wp_enqueue_script('personal-javascript-labs', get_template_directory_uri() . '/js/personal-javascript.js');
     }
 }

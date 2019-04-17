@@ -21,7 +21,7 @@
 
 <body>
   <!-- Page Preloder -->
-  <div id="preloder">
+  <div id="preloderd">
     <div class="loader">
        <!-- Pour le changement de l'icone sur dans preload-->
       <?php
@@ -43,9 +43,8 @@
         <img class="logo_size" src="<?php echo $image[0]; ?>" alt="">
       </a>
     </div>
-
     <!-- Navigation -->
-    <div class="responsive"><i class="fa fa-bars"></i></div>
+    <div id="menu_navig"class="responsive"><i class="fa fa-bars"></i></div>
     <!-- Nouveau menu -->
     <?php
       wp_nav_menu([
@@ -53,8 +52,8 @@
         'theme_location' => 'menu-principal',
         'menu_class' => 'menu-list',
         'add_li_class' => 'nav-item'
-      ]);
-    ?>
+        ]);
+        ?>
   </header>
   <!-- Header section end -->
 

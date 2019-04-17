@@ -41,7 +41,7 @@
         <!-- Devices -->
         <div class="col-md-4 col-sm-4 devices">
           <div class="text-center">
-            <img src="img/device.png" alt="">
+            <img src="<?= LABS_IMG . 'device.png'?>" alt="">
           </div>
         </div>
         <!-- feature item -->
