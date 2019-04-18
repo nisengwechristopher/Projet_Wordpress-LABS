@@ -3,10 +3,16 @@
     <div class="overlay"></div>
     <div class="container text-right">
       <div class="page-info">
-        <h2>Services</h2>
+        <h2 id="titre_page-info">
+          <?= get_the_title(); ?>
+        </h2>
         <div class="page-links">
-          <a href="blog.html">Home</a>
-          <span>Services</span>
+          <a href="#">
+            <?= $test; ?>
+          </a>
+          <span>
+          <?= get_the_title(); ?>
+          </span>
         </div>
       </div>
     </div>

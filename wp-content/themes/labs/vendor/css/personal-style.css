@@ -4,4 +4,6 @@
     max-height:32px;
 }
 
-/* pour assigner la classe "active" seulement au li active */
+#titre_page-info {
+    padding-right: 8px;
+}
