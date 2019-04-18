@@ -41,13 +41,10 @@ add_theme_support( 'custom-logo', array(
             'description' => __('Modification du logo peut se faire par une image / du texte'),
         ]);
 
-
         // Setting personnalisation du logo et des images du fichier intro_section.php
         $wp_customize->add_setting('setting-header-logo');
         $wp_customize->add_setting('setting-header-image-1');
         $wp_customize->add_setting('setting-header-image-2');
-        
-
 
         // Controls personnalisation du logo et des images du fichier intro_Section.php
         $wp_customize->add_control(new WP_Customize_Image_Control (
@@ -70,5 +67,15 @@ add_theme_support( 'custom-logo', array(
         ));
 
     }
+
+    /**
+      * 
+      * Personnalisation dans le carroussel, le logo et les images.
+      * La page de reference == templates/intro_section.php.
+      *
+      */
+      public static function modification_about($wp_customize){
+          
+      }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
