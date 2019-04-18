@@ -19,6 +19,8 @@
             ?>
 
         </div>
+        <h2><?= get_the_title() ?></h2>
+        <h2><?= get_the_ID() ?></h2>
         <div>
             <h2 class="text-center text-uppercase mb-4"><?php the_title(); ?></h2>
 
