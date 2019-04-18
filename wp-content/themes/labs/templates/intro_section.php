@@ -2,8 +2,8 @@
   <div class="hero-section">
     <div class="hero-content">
       <div class="hero-center">
-        <img src="<?= LABS_IMG . 'big-logo.png'?>" alt="">
-        <p>Get your freebie template now!</p>
+        <img src="<?= get_theme_mod('setting-header-logo');?>" alt="">
+        <p><?= get_bloginfo('description')?></p>
       </div>
     </div>
     <!-- slider -->

@@ -22,29 +22,26 @@ add_theme_support( 'custom-logo', array(
     static public function modification_header($wp_customize) {
 
         $wp_customize->add_panel('panel-header',[
-            'title' => __('Modification du header'),
-            'description' => __('Personnalisation de la section header'),
+            'title' => __('Modification Carrousel'),
+            'description' => __('Personnalisation du Caroussel'),
         ]);
 
         $wp_customize->add_section('section-header-logo',[
             'panel' => 'panel-header',
-            'titre' => __('Personnalisation logo'),
+            'title' => __('Personnalisation logo'),
             'description' => __('Modification du logo peut se faire par une image / du texte'),
         ]);
 
         
-        $wp_customize->add_setting('setting-header-logo', [
-            'type' => 'theme_mod',
-            'transport' => 'refresh'
-        ]);
+        $wp_customize->add_setting('setting-header-logo');
 
-        $wp_customize->add_control('control-header-logo', [
-            'section' => 'section-header-logo',
-            'settings' => 'setting-header-logo',
-            'label' => __('Modification du logo'),
-            'description' => __('Personnalisez le logo se trouvant en haut & à gauche de la page'),
-            'type' => '',
-        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control (
+            $wp_customize, 'setting-header-logo', [
+                'section' => 'section-header-logo',
+                'label' => __('Modification du texte'),
+            ]
+        ));
+
     }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
