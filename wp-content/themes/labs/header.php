@@ -21,7 +21,7 @@
 
 <body>
   <!-- Page Preloder -->
-  <div id="preloderd">
+  <div id="preloder">
     <div class="loader">
        <!-- Pour le changement de l'icone sur dans preload-->
       <?php
@@ -47,21 +47,15 @@
     <div id="menu_navig"class="responsive"><i class="fa fa-bars"></i></div>
     <!-- Nouveau menu -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
-
-
-<?php
-  $link_services = get_template_directory_uri() . '/services.php';
-?>
-
-    <nav>
-      <ul class="menu-list">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="<?= $link_services ?>">Services</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="elements.html">Elements</a></li>
-      </ul>
-    </nav>
+     <!-- Nouveau menu -->
+     <?php
+      wp_nav_menu([
+        'container' => '',
+        'theme_location' => 'menu-principal',
+        'menu_class' => 'menu-list',
+        'add_li_class' => 'nav-item'
+      ]);
+    ?>
   </header>
   <!-- Header section end -->
 
