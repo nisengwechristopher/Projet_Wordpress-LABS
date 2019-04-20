@@ -16,6 +16,7 @@ add_theme_support( 'custom-logo', array(
  */
  class labsCustomizer {
 
+
      /**
       * 
       * Personnalisation dans le carroussel, le logo et les images.
@@ -23,6 +24,7 @@ add_theme_support( 'custom-logo', array(
       *
       */
     static public function modification_header($wp_customize) {
+
         // Panel - personnalisation dans le fichier intro_section.php
         $wp_customize->add_panel('panel-header',[
             'title' => __('Modification Carrousel'),
@@ -68,14 +70,91 @@ add_theme_support( 'custom-logo', array(
 
     }
 
+
+
+
     /**
       * 
-      * Personnalisation dans le carroussel, le logo et les images.
-      * La page de reference == templates/intro_section.php.
+      * Personnalisation dans la section about: titre, texte, video & bouton.
+      * La page de reference == templates/about_section.php.
       *
       */
       public static function modification_about($wp_customize){
-          
+
+          // Panel - personnalisation dans le fichier about_section.php
+          $wp_customize->add_panel('panel-about',[
+            'title' => __('Modification de la section à propos'),
+            'description' => __('Modification de la section à propos le contenu texte et la vidéo'),
+        ]);
+
+        // Sections de personnalisation pour le contenu de type texte dans le fichier about_section.php
+        $wp_customize->add_section('section-about-texte',[
+            'panel' => 'panel-about',
+            'title' => __('Personnalisation pour le contenu de type texte'),
+            'description' => __('Modification du titre, des deux paragraphes et du bouton'),
+        ]);
+        $wp_customize->add_section('section-about-video',[
+            'panel' => 'panel-about',
+            'title' => __('Personnalisation de la video'),
+            'description' => __('Personalisation de la video via un url'),
+        ]);
+
+        // Setting personnalisation du titre, texte, video & bouton du fichier about_section.php
+        $wp_customize->add_setting('setting-about-titre', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-about-paragraphe-1', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-about-paragraphe-2', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-about-bouton', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-about-video', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Controls personnalisation du titre, texte, video & bouton du fichier about_section.php
+        $wp_customize->add_control('control-about-titre',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-titre',
+            'label' => __('Modification du titre'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-paragraphe-1',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-paragraphe-1',
+            'label' => __('Modification du premier paragraphe'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-paragraphe-2',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-paragraphe-2',
+            'label' => __('Modification du deuxième paragraphe'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-bouton',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-bouton',
+            'label' => __('Modification du bouton'),
+            'type' => 'textarea'
+        ]);
+        // DO REASERCH TO FIND A BETTER CONTROL !!!!!!!!
+        $wp_customize->add_control('control-about-video',[
+            'section' => 'section-about-video',
+            'settings' => 'setting-about-video',
+            'label' => __('Modification du bouton'),
+            'type' => 'textarea'
+        ]);
+
       }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_about']);
