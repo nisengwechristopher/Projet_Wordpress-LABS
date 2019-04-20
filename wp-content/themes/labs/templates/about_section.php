@@ -11,14 +11,14 @@
               <div class="icon">
                 <i class="flaticon-023-flask"></i>
               </div>
-              <!-- Recupération de manière dynamique des postes afin des les afficher.!! faut mettre une condition pour verifier la Catégorie. -->
+              <!-- Recupération de manière dynamique des postes afin des les afficher.!! -->
                 <?php
                 // Query random posts
                 $the_query = new WP_Query( array(
                   'post_type'      => 'post',
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
-                  'category_name' => 'services',
+                  'category_name' => 'services', // permet de vérifier la catégorie 
                 ) ); ?>
 
                 <?php
@@ -87,7 +87,7 @@
                   'post_type'      => 'post',
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
-                  'category_name' => 'services',
+                  'category_name' => 'services', // permet de vérifier la catégorie 
                 ) ); ?>
 
                 <?php
