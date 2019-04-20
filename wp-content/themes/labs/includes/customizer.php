@@ -104,6 +104,10 @@ add_theme_support( 'custom-logo', array(
             'type' => 'theme_mod',
             'transport' => 'refresh',
         ]);
+        $wp_customize->add_setting('setting-about-titre-bg', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
         $wp_customize->add_setting('setting-about-paragraphe-1', [
             'type' => 'theme_mod',
             'transport' => 'refresh',
@@ -128,6 +132,12 @@ add_theme_support( 'custom-logo', array(
             'label' => __('Modification du titre'),
             'type' => 'textarea'
         ]);
+        $wp_customize->add_control('control-about-titre-bg',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-titre-bg',
+            'label' => __('Modification du titre partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
         $wp_customize->add_control('control-about-paragraphe-1',[
             'section' => 'section-about-texte',
             'settings' => 'setting-about-paragraphe-1',
@@ -150,7 +160,7 @@ add_theme_support( 'custom-logo', array(
         $wp_customize->add_control('control-about-video',[
             'section' => 'section-about-video',
             'settings' => 'setting-about-video',
-            'label' => __('Modification du bouton'),
+            'label' => __('Modification de la video'),
             'type' => 'textarea'
         ]);
 
