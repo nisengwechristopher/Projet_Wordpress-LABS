@@ -12,13 +12,13 @@
                 <i class="flaticon-023-flask"></i>
               </div>
               <!-- Recupération de manière dynamique des postes afin des les afficher.!! faut mettre une condition pour verifier la Catégorie. -->
-              <h2>
                 <?php
                 // Query random posts
                 $the_query = new WP_Query( array(
                   'post_type'      => 'post',
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
+                  'category_name' => 'services',
                 ) ); ?>
 
                 <?php
@@ -29,16 +29,15 @@
                       <?php
                       // Loop through the posts
                       while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                        <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                      <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?= the_content() ?></p>
+
                       <?php endwhile; ?>
                       <?php wp_reset_postdata(); ?>
                     </ul>
                   </div>
 
                 <?php endif;?>
-              </h2>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
             </div>
           </div>
           <!-- single card -->
@@ -47,7 +46,6 @@
               <div class="icon">
                 <i class="flaticon-011-compass"></i>
               </div>
-              <h2>
               <!-- Recupération de manière dynamique des postes afin des les afficher.!! faut mettre une condition pour verifier la Catégorie. -->
                 <?php
                 // Query random posts
@@ -55,8 +53,9 @@
                   'post_type'      => 'post',
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
+                  'category_name' => 'services', // permet de vérifier la catégorie 
                 ) ); ?>
-
+                
                 <?php
                 // If we have posts lets show them
                 if ( $the_query->have_posts() ) : ?>
@@ -66,15 +65,13 @@
                       <?php
                       // Loop through the posts
                       while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                        <li><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?= the_content()?></p>
                       <?php endwhile; ?>
                       <?php wp_reset_postdata(); ?>
                     </ul>
                   </div>
-
                 <?php endif;?>
-              </h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
             </div>
           </div>
           <!-- single card -->
@@ -83,8 +80,31 @@
               <div class="icon">
                 <i class="flaticon-037-idea"></i>
               </div>
-              <h2>SMART MARKETING</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+            <!-- Recupération de manière dynamique des postes afin des les afficher.!! faut mettre une condition pour verifier la Catégorie. -->
+                <?php
+                // Query random posts
+                $the_query = new WP_Query( array(
+                  'post_type'      => 'post',
+                  'orderby'        => 'rand',
+                  'posts_per_page' => 1,
+                  'category_name' => 'services',
+                ) ); ?>
+
+                <?php
+                // If we have posts lets show them
+                if ( $the_query->have_posts() ) : ?>
+                  <div id="randomposts">
+                    <ul>
+                      <?php
+                      // Loop through the posts
+                      while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
+                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <p><?= the_content() ?></p>
+                      <?php endwhile; ?>
+                      <?php wp_reset_postdata(); ?>
+                    </ul>
+                  </div>
+                <?php endif;?>
             </div>
           </div>
         </div>
