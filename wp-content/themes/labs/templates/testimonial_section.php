@@ -6,9 +6,6 @@
         <div class="col-md-8 col-md-offset-4">
           <div class="section-title left">
             <h2><?= get_theme_mod('setting-testimonial-titre');?></h2>
-            <p><?= get_template_directory_uri(); ?></p>
-            <p><?= get_template_directory(); ?></p>
-
           </div>
           <div class="owl-carousel" id="testimonial-slide">
             <!-- single testimonial -->
