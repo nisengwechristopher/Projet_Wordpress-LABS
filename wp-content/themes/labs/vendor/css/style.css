@@ -520,7 +520,8 @@ ul {
 
 .test-overlay {
 	position: absolute;
-	background-image: url("../img/test-man.png");
+	/* modification du chemin pour l'image static */
+	background-image: url("/Projet_Wordpress-LABS/wp-content/themes/labs/img/test-man.png");
 	background-repeat: no-repeat;
 	background-position: bottom right;
 	background-size: contain;

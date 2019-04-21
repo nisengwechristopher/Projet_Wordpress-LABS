@@ -2,6 +2,7 @@
 
 /**
  * Pour la modification du logo dans le preloader et sur le site.
+ * La page de reference == header.php
  * */
 add_theme_support( 'custom-logo', array(
     'height'      => 100,
@@ -73,7 +74,7 @@ add_theme_support( 'custom-logo', array(
 
 
 
-    /**
+     /**
       * 
       * Personnalisation dans la section about: titre, texte, video & bouton.
       * La page de reference == templates/about_section.php.
@@ -81,8 +82,8 @@ add_theme_support( 'custom-logo', array(
       */
       public static function modification_about($wp_customize){
 
-          // Panel - personnalisation dans le fichier about_section.php
-          $wp_customize->add_panel('panel-about',[
+            // Panel - personnalisation dans le fichier about_section.php
+            $wp_customize->add_panel('panel-about',[
             'title' => __('Modification de la section à propos'),
             'description' => __('Modification de la section à propos le contenu texte et la vidéo'),
         ]);
@@ -166,15 +167,57 @@ add_theme_support( 'custom-logo', array(
             'label' => __('Modification du bouton'),
             'type' => ''
         ]);
-        // DO REASERCH TO FIND A BETTER CONTROL !!!!!!!!
         $wp_customize->add_control('control-about-video',[
             'section' => 'section-about-video',
             'settings' => 'setting-about-video',
             'label' => __('Modification de la video'),
             'type' => 'textarea'
         ]);
+    }
 
-      }
+
+
+
+
+    /**
+     * 
+     * Personnalisation de la section testimonials, le contenu type textes.
+     * Les temoignages doivent venir des commentaires des clients avec leur photo.
+     * La page de reference == templates/testimonial_section.php.
+     * 
+     */
+
+     public static function modification_testimonial ($wp_customize) {
+
+        // Panel - personnalisation dans le fichier testimonial_section.php
+        $wp_customize->add_panel('panel-testimonial',[
+            'title' => __('Modification de la section temoignages'),
+            'description' => __('Modification du titre de la section temoignages'),
+        ]);
+
+        // Sections de personnalisation pour le contenu de type texte dans le fichier testimonial_section.php
+        $wp_customize->add_section('section-testimonial-texte',[
+            'panel' => 'panel-testimonial',
+            'title' => __('Personnalisation du titre'),
+            'description' => __('Modification du titre'),
+        ]);
+
+        // Setting personnalisation du titre, dans le fichier testimonial_section.php
+        $wp_customize->add_setting('setting-testimonial-titre', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Controls personnalisation du titre dans le fichier testimonial_section.php
+        $wp_customize->add_control('control-testimonial-titre',[
+            'section' => 'section-testimonial-texte',
+            'settings' => 'setting-testimonial-titre',
+            'label' => __('Modification du titre'),
+            'type' => 'textarea'
+        ]);
+
+    }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_testimonial']);
