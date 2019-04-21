@@ -108,6 +108,10 @@ add_theme_support( 'custom-logo', array(
             'type' => 'theme_mod',
             'transport' => 'refresh',
         ]);
+        $wp_customize->add_setting('setting-about-titre-end', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
         $wp_customize->add_setting('setting-about-paragraphe-1', [
             'type' => 'theme_mod',
             'transport' => 'refresh',
@@ -129,13 +133,19 @@ add_theme_support( 'custom-logo', array(
         $wp_customize->add_control('control-about-titre',[
             'section' => 'section-about-texte',
             'settings' => 'setting-about-titre',
-            'label' => __('Modification du titre'),
+            'label' => __('Modification du titre avent la partie mise en évidence'),
             'type' => 'textarea'
         ]);
         $wp_customize->add_control('control-about-titre-bg',[
             'section' => 'section-about-texte',
             'settings' => 'setting-about-titre-bg',
-            'label' => __('Modification du titre partie mise en évidence.'),
+            'label' => __('Modification du titre pour la partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-titre-end',[
+            'section' => 'section-about-texte',
+            'settings' => 'setting-about-titre-end',
+            'label' => __('Modification du titre après la partie mise en évidence.'),
             'type' => 'textarea'
         ]);
         $wp_customize->add_control('control-about-paragraphe-1',[
@@ -154,7 +164,7 @@ add_theme_support( 'custom-logo', array(
             'section' => 'section-about-texte',
             'settings' => 'setting-about-bouton',
             'label' => __('Modification du bouton'),
-            'type' => 'textarea'
+            'type' => ''
         ]);
         // DO REASERCH TO FIND A BETTER CONTROL !!!!!!!!
         $wp_customize->add_control('control-about-video',[
