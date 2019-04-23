@@ -19,9 +19,8 @@
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
                   'category_name' => 'services', // permet de vérifier la catégorie 
-                ) ); ?>
+                ) );
 
-                <?php
                 // If we have posts lets show them
                 if ( $the_query->have_posts() ) : ?>
                   <div id="randomposts">
@@ -54,9 +53,8 @@
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
                   'category_name' => 'services', // permet de vérifier la catégorie 
-                ) ); ?>
-                
-                <?php
+                ) );
+
                 // If we have posts lets show them
                 if ( $the_query->have_posts() ) : ?>
 
@@ -88,9 +86,8 @@
                   'orderby'        => 'rand',
                   'posts_per_page' => 1,
                   'category_name' => 'services', // permet de vérifier la catégorie 
-                ) ); ?>
+                ) );
 
-                <?php
                 // If we have posts lets show them
                 if ( $the_query->have_posts() ) : ?>
                   <div id="randomposts">
@@ -98,7 +95,7 @@
                       <?php
                       // Loop through the posts
                       while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <h2><a class="post_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
                         <p><?= the_content() ?></p>
                       <?php endwhile; ?>
                       <?php wp_reset_postdata(); ?>
@@ -111,7 +108,6 @@
       </div>
     </div>
     <!-- card section end-->
-
 
     <!-- About contant -->
     <div class="about-contant">

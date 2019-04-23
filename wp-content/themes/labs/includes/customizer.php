@@ -201,9 +201,18 @@ add_theme_support( 'custom-logo', array(
             'title' => __('Personnalisation du titre'),
             'description' => __('Modification du titre'),
         ]);
+        $wp_customize->add_section('section-testimonial-bouton',[
+            'panel' => 'panel-testimonial',
+            'title' => __('Personnalisation du bouton'),
+            'description' => __('Modification du bouton'),
+        ]);
 
         // Setting personnalisation du titre, dans le fichier testimonial_section.php
         $wp_customize->add_setting('setting-testimonial-titre', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-testimonial-bouton', [
             'type' => 'theme_mod',
             'transport' => 'refresh',
         ]);
@@ -214,6 +223,12 @@ add_theme_support( 'custom-logo', array(
             'settings' => 'setting-testimonial-titre',
             'label' => __('Modification du titre'),
             'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-bouton',[
+            'section' => 'section-testimonial-bouton',
+            'settings' => 'setting-testimonial-bouton',
+            'label' => __('Modification du bouton'),
+            'type' => ''
         ]);
 
     }
