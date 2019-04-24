@@ -19,3 +19,14 @@ color: black;
 .team_links:hover{
     color: #d1e8fc;
 }
+
+/* display none pour le formulaire de concatec sur les pages blogs */
+.pages_blog .contact-section{
+    display: none;
+}
+
+
+
+#blog_posts{
+    display: inline-flex;
+}

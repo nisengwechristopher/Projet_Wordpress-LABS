@@ -124,7 +124,7 @@
           </div>
         </div>
         <div class="text-center mt60">
-          <a class="post_links" href="<?= get_permalink( get_page_by_path( 'blog' ) ) ?>" class="site-btn"><?= get_theme_mod('setting-about-bouton')?></a>
+          <a class="site-btn" href="<?= get_permalink( get_page_by_path( 'blog' ) ) ?>" class="site-btn"><?= get_theme_mod('setting-about-bouton')?></a>
         </div>
         <!-- popup video -->
         <div class="intro-video">

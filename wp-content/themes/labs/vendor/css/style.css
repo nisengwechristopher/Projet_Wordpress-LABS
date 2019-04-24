@@ -1083,11 +1083,16 @@ ul {
 	font-weight: 400;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	margin-bottom: 18px;
+	color: #000000;
 }
 
 .post-meta {
 	margin-bottom: 40px;
+}
+/* Pour enlever les listtsyles et limiter la taille selon le contenu des catégories dynamiquement crées */
+.post-meta ul {
+	width: max-content;
+	list-style: none;
 }
 
 .post-meta a {
@@ -1096,6 +1101,8 @@ ul {
 	padding-left: 20px;
 	position: relative;
 	margin-left: 10px;
+	box-sizing: border-box;
+
 }
 
 .post-meta a:after {
@@ -1107,6 +1114,17 @@ ul {
 	top: 3px;
 	background: #2be6ab;
 	border-radius: 10px;
+}
+
+.post-meta .blog-post-comments {
+	padding-top: 2px;
+}
+.post-meta .blog-post-comments:after{
+	top: 7px;
+}
+/* me */
+.post-meta .blog-post-comments:after{
+	top: 7px;
 }
 
 .post-meta a:first-child {
@@ -1254,6 +1272,10 @@ ul {
 --------------------------*/
 .single-post .post-content {
 	margin-bottom: 90px;
+}
+
+.post-content h2 {
+	margin-bottom: 23px;
 }
 
 .single-post .post-content p {

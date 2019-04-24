@@ -40,7 +40,7 @@
             // Query random posts
             $the_query = new WP_Query( array(
               'post_type'      => 'post',
-              'orderby'        => 'DESC',
+              'orderby'        => 'ASC',
               'posts_per_page' => 1,
               'category_name' => 'manager', // permet de vérifier la catégorie 
             ) );
