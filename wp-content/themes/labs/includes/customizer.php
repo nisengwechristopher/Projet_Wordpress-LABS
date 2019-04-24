@@ -13,6 +13,12 @@ add_theme_support( 'custom-logo', array(
 );
 
 /**
+ * function pour ajouter dans les posts et pages une image vignette (thumbnail).
+ */
+add_theme_support('post-thumbnails');
+
+
+/**
  * Pour modifier le texte dans le menus en haut de page et voir changements dans les 'templates : page_header.php'selon 
  */
  class labsCustomizer {
@@ -82,8 +88,8 @@ add_theme_support( 'custom-logo', array(
       */
       public static function modification_about($wp_customize){
 
-            // Panel - personnalisation dans le fichier about_section.php
-            $wp_customize->add_panel('panel-about',[
+        // Panel - personnalisation dans le fichier about_section.php
+        $wp_customize->add_panel('panel-about',[
             'title' => __('Modification de la section à propos'),
             'description' => __('Modification de la section à propos le contenu texte et la vidéo'),
         ]);
@@ -232,7 +238,73 @@ add_theme_support( 'custom-logo', array(
         ]);
 
     }
+
+
+
+
+
+    /**
+     * 
+     * Personnalisation de la section team, le titre et les cartes.
+     * Le membre de l'équipe eu centrev (manager) reste toujours au centre malgré les modifications.
+     * La page de reference == templates/team_section.php.
+     * 
+     */
+
+
+    public static function modification_team ($wp_customize) {
+
+        // Panel - personnalisation dans le fichier team_section.php
+        $wp_customize->add_panel('panel-team',[
+            'title' => __('Modification de la section team'),
+            'description' => __('Modification de la section team le contenu texte et imges'),
+        ]);
+
+        // Sections de personnalisation poure titre dans le fichier team_section.php
+        $wp_customize->add_section('section-team-titre',[
+            'panel' => 'panel-team',
+            'title' => __('Personnalisation du titre'),
+            'description' => __('Modification du titre'),
+        ]);
+
+        // Setting personnalisation du titre, texte team_section.php
+        $wp_customize->add_setting('setting-team-titre', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-team-titre-bg', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-team-titre-end', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Controls personnalisation du titre dans le fichier team_section.php
+        $wp_customize->add_control('control-team-titre',[
+            'section' => 'section-team-titre',
+            'settings' => 'setting-team-titre',
+            'label' => __('Modification du titre avent la partie mise en évidence'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-team-titre-bg',[
+            'section' => 'section-team-titre',
+            'settings' => 'setting-team-titre-bg',
+            'label' => __('Modification du titre pour la partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-team-titre-end',[
+            'section' => 'section-team-titre',
+            'settings' => 'setting-team-titre-end',
+            'label' => __('Modification du titre après la partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
+
+    }
+
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);
  add_action('customize_register', [labsCustomizer::class, 'modification_testimonial']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_team']);

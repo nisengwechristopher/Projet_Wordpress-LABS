@@ -28,7 +28,7 @@
                       <?php
                       // Loop through the posts
                       while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                      <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <h2><a class="post_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
                         <p><?= the_content() ?></p>
 
                       <?php endwhile; ?>
@@ -63,7 +63,7 @@
                       <?php
                       // Loop through the posts
                       while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                        <h2><a class="post_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
                         <p><?= the_content()?></p>
                       <?php endwhile; ?>
                       <?php wp_reset_postdata(); ?>
@@ -113,8 +113,7 @@
     <div class="about-contant">
       <div class="container">
         <div class="section-title">
-          <!-- <h2>Get in <span>the Lab</span> and discover the world</h2> -->
-          <h2><?= get_theme_mod('setting-about-titre');?> <span><?= get_theme_mod('setting-about-titre-bg'); ?></span> <?= get_theme_mod('setting-about-titre-end') ?></h2>
+          <h2><?= get_theme_mod('setting-about-titre');?><span><?= get_theme_mod('setting-about-titre-bg'); ?></span> <?= get_theme_mod('setting-about-titre-end') ?></h2>
         </div>
         <div class="row">
           <div class="col-md-6">
@@ -125,7 +124,7 @@
           </div>
         </div>
         <div class="text-center mt60">
-          <a href="<?= get_permalink( get_page_by_path( 'blog' ) ) ?>" class="site-btn"><?= get_theme_mod('setting-about-bouton')?></a>
+          <a class="post_links" href="<?= get_permalink( get_page_by_path( 'blog' ) ) ?>" class="site-btn"><?= get_theme_mod('setting-about-bouton')?></a>
         </div>
         <!-- popup video -->
         <div class="intro-video">
@@ -139,7 +138,7 @@
                   echo "https://img.youtube.com/vi/$image_video/maxresdefault.jpg";
                 ?>" 
               alt="">
-              <a href="<?= get_theme_mod('setting-about-video'); ?>" class="video-popup">
+              <a class="post_links" href="<?= get_theme_mod('setting-about-video'); ?>" class="video-popup">
                 <i class="fa fa-play"></i>
               </a>
             </div>

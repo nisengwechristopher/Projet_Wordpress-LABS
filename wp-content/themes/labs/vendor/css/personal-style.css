@@ -11,3 +11,11 @@
 .post_links {
 color: black;
 }
+
+.team_links{
+    color: #ffffff;
+}
+
+.team_links:hover{
+    color: #d1e8fc;
+}

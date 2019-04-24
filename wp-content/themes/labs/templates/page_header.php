@@ -7,7 +7,7 @@
           <?= get_the_title(); ?>
         </h2>
         <div class="page-links">
-          <a href="<?= get_site_url() ?>">home</a>
+          <a href="<?= get_site_url() ?>">Home</a>
           <span>
           <?= get_the_title(); ?>
           </span>
