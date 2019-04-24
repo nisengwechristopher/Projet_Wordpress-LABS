@@ -300,9 +300,7 @@ add_theme_support('post-thumbnails');
             'label' => __('Modification du titre après la partie mise en évidence.'),
             'type' => 'textarea'
         ]);
-
     }
-
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);

@@ -937,7 +937,8 @@ ul {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	max-height: 260px;
+	height: 260px;
+	width: 360px;
 }
 
 .sv-card .card-img img {

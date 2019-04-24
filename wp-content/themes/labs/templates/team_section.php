@@ -20,17 +20,19 @@
 
             // If we have posts lets show them
             if ( $the_query->have_posts() ) : ?>
-                  <?php
-                  // Loop through the posts
-                  while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                    <img src="<?= get_the_post_thumbnail_url()?>" alt="">
-                    <h2><a class="team_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                    <h3><?= the_content() ?></h3>
-                  <?php endwhile; ?>
-                  <?php wp_reset_postdata(); ?>
-                </div>
-              </div>
+              <?php
+              // Loop through the posts
+              while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
+                <img src="<?= get_the_post_thumbnail_url()?>" alt="">
+                <h2><a class="team_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                <h3><?= the_content(); ?></h3>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
             <?php endif;?>
+          </div>
+        </div>
+          <!-- single member end -->
+
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
@@ -45,45 +47,47 @@
 
             // If we have posts lets show them
             if ( $the_query->have_posts() ) : ?>
+              <?php
+              // Loop through the posts
+              while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
+                <img src="<?= get_the_post_thumbnail_url()?>" alt="">
+                <h2><a class="team_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+                <h3><?= the_content(); ?></h3>
+              <?php endwhile; ?>
+              <?php wp_reset_postdata(); ?>
+            <?php endif;?>
+          </div>
+        </div>
+          <!-- single member end -->
+
+          <!-- single member -->
+          <div class="col-sm-4">
+            <div class="member">
+              <?php
+                // Query random posts
+                $the_query = new WP_Query( array(
+                  'post_type'      => 'post',
+                  'orderby'        => 'rand',
+                  'posts_per_page' => 1,
+                  'category_name' => 'team', // permet de vérifier la catégorie 
+                ) );
+
+                // If we have posts lets show them
+                if ( $the_query->have_posts() ) : ?>
                   <?php
                   // Loop through the posts
                   while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
                     <img src="<?= get_the_post_thumbnail_url()?>" alt="">
                     <h2><a class="team_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                    <h3><?= the_content() ?></h3>
+                    <h3><?= the_content(); ?></h3>
                   <?php endwhile; ?>
                   <?php wp_reset_postdata(); ?>
-                </div>
-              </div>
-            <?php endif;?>
-        <!-- single member -->
-        <div class="col-sm-4">
-          <div class="member">
-          <?php
-            // Query random posts
-            $the_query = new WP_Query( array(
-              'post_type'      => 'post',
-              'orderby'        => 'rand',
-              'posts_per_page' => 1,
-              'category_name' => 'team', // permet de vérifier la catégorie 
-            ) );
-
-            // If we have posts lets show them
-            if ( $the_query->have_posts() ) : ?>
-                  <?php
-                  // Loop through the posts
-                  while ( $the_query->have_posts() ) : $the_query->the_post();  ?>
-                    <img src="<?= get_the_post_thumbnail_url()?>" alt="">
-                    <h2><a class="team_links" class="post_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-                    <h3><?= the_content() ?></h3>
-                  <?php endwhile; ?>
-                  <?php wp_reset_postdata(); ?>
-                </div>
-              </div>
-            <?php endif;?>
+                <?php endif;?>
+            </div>
           </div>
-        </div>
+          <!-- single member end -->
       </div>
     </div>
   </div>
+
   <!-- Team Section end-->

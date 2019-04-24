@@ -21,7 +21,7 @@
 
 <body>
   <!-- Page Preloder -->
-  <div id="preloder">
+  <div id="prelonder">
     <div class="loader">
        <!-- Pour le changement de l'icone sur dans preload-->
       <?php
