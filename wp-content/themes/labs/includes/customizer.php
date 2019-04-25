@@ -192,7 +192,6 @@ add_theme_support('post-thumbnails');
      * La page de reference == templates/testimonial_section.php.
      * 
      */
-
      public static function modification_testimonial ($wp_customize) {
 
         // Panel - personnalisation dans le fichier testimonial_section.php
@@ -241,6 +240,63 @@ add_theme_support('post-thumbnails');
 
 
 
+    /**
+     * 
+     * Personnalisation de la section service, le titre (et les icones eventuellement)
+     * La page de reference == templates/services_section.php.
+     * 
+     */
+    public static function modification_services ($wp_customize) {
+
+        // Panel - personnalisation dans le fichier services_section.php
+        $wp_customize->add_panel('panel-services',[
+            'title' => __('Modification de la section services'),
+            'description' => __('Modification de la section à propos le contenu texte et la vidéo'),
+        ]);
+
+        // Sections de personnalisation pour le contenu de type texte dans le fichier services_section.php
+        $wp_customize->add_section('section-services-texte',[
+            'panel' => 'panel-services',
+            'title' => __('Personnalisation pour le contenu de type texte'),
+            'description' => __('Modification du titre'),
+        ]);
+
+        // Setting personnalisation du titre dans le fichier services_section.php
+        $wp_customize->add_setting('setting-services-titre', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-services-titre-bg', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-services-titre-end', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Controls personnalisation du titre dans services_section.php
+        $wp_customize->add_control('control-services-titre',[
+            'section' => 'section-services-texte',
+            'settings' => 'setting-services-titre',
+            'label' => __('Modification du titre avent la partie mise en évidence'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-about-titre-bg',[
+            'section' => 'section-services-texte',
+            'settings' => 'setting-services-titre-bg',
+            'label' => __('Modification du titre pour la partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-services-titre-end',[
+            'section' => 'section-services-texte',
+            'settings' => 'setting-services-titre-end',
+            'label' => __('Modification du titre après la partie mise en évidence.'),
+            'type' => 'textarea'
+        ]);
+
+    }
+
 
 
     /**
@@ -250,8 +306,6 @@ add_theme_support('post-thumbnails');
      * La page de reference == templates/team_section.php.
      * 
      */
-
-
     public static function modification_team ($wp_customize) {
 
         // Panel - personnalisation dans le fichier team_section.php
@@ -305,4 +359,5 @@ add_theme_support('post-thumbnails');
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);
  add_action('customize_register', [labsCustomizer::class, 'modification_testimonial']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_services']);
  add_action('customize_register', [labsCustomizer::class, 'modification_team']);

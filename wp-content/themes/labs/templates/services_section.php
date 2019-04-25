@@ -2,7 +2,7 @@
   <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <h2>Get in <span>the Lab</span> and see the services</h2>
+      <h2><?= get_theme_mod('setting-services-titre');?><span><?= get_theme_mod('setting-services-titre-bg'); ?></span> <?= get_theme_mod('setting-services-titre-end') ?></h2>
       </div>
       <!-- affichagne des posts dans l'ordre chronologique-->
       <?php
@@ -31,7 +31,6 @@
           <?php
         endwhile;
       endif;?>
-     
       <div class="text-center">
       <a href="<?= get_permalink( get_page_by_path( 'services' ) ) ?>" class="site-btn"><?= get_theme_mod('setting-testimonial-bouton')?></a>
       </div>
