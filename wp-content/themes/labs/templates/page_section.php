@@ -3,111 +3,42 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-sm-7 blog-posts">
-					<!-- Post item -->
-					<div class="post-item">
-						<!-- affichagne des blog-posts (category) dans l'ordre chronologique-->
-						<?php
-							$my_query = new WP_Query ([
-							'post_type' => 'post',
-							'category_name' => 'blog-post',
-							'posts_per_page' => 1,
-							'orderby' => 'rand',
-							]);
-
-							// If we have posts lets show them
-							if($my_query->have_posts()) :
-								while ($my_query->have_posts() ) : $my_query->the_post();?>
-								<div class="post-thumbnail">
-									<img src="<?= get_the_post_thumbnail_url()?>" alt="">
-									<div class="post-date">
-										<h2><?= get_the_date(__('j')); ?></h2>
-										<h3><?= get_the_date(__('M Y')); ?></h3>
-									</div>
-								</div>
-								<div class="post-content">
-									<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-									<div id="blog_posts" class="post-meta">
-										<a class="blog-post-comments" href=""><?= the_author(); ?></a>
-										<a class="blog-post-comments" href=""><?= the_tags()?></a>
-										<a class="blog-post-comments" href=""><?= get_comments_number(); ?> Comments</a>
-									</div>
-									<p><?= the_content(); ?></p>
-									<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
-								</div>
-								<?php
-								endwhile;
-							endif;?>
-					</div>
-					<!-- Post item -->
-					<div class="post-item">
-						<!-- affichagne des blog-posts (category) dans l'ordre chronologique-->
-						<?php
-							$my_query = new WP_Query ([
-							'post_type' => 'post',
-							'category_name' => 'blog-post',
-							'posts_per_page' => 1,
-							'orderby' => 'rand',
-							]);
-
-							// If we have posts lets show them
-							if($my_query->have_posts()) :
-								while ($my_query->have_posts() ) : $my_query->the_post();?>
-								<div class="post-thumbnail">
-									<img src="<?= get_the_post_thumbnail_url()?>" alt="">
-									<div class="post-date">
-										<h2><?= get_the_date(__('j')); ?></h2>
-										<h3><?= get_the_date(__('M Y')); ?></h3>
-									</div>
-								</div>
-								<div class="post-content">
-									<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-									<div id="blog_posts" class="post-meta">
-										<a class="blog-post-comments" href=""><?= the_author(); ?></a>
-										<a class="blog-post-comments" href=""><?= the_tags()?></a>
-										<a class="blog-post-comments" href=""><?= get_comments_number(); ?> Comments</a>
-									</div>
-									<p><?= the_content(); ?></p>
-									<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
-								</div>
-								<?php
-								endwhile;
-							endif;?>
-					</div>
-					<!-- Post item -->
-					<div class="post-item">
 					<!-- affichagne des blog-posts (category) dans l'ordre chronologique-->
 					<?php
-							$my_query = new WP_Query ([
+						$my_query = new WP_Query ([
 							'post_type' => 'post',
 							'category_name' => 'blog-post',
-							'posts_per_page' => 1,
+							'posts_per_page' => 3,
 							'orderby' => 'rand',
 							]);
-
+							
 							// If we have posts lets show them
 							if($my_query->have_posts()) :
 								while ($my_query->have_posts() ) : $my_query->the_post();?>
-								<div class="post-thumbnail">
-									<img src="<?= get_the_post_thumbnail_url()?>" alt="">
-									<div class="post-date">
-										<h2><?= get_the_date(__('j')); ?></h2>
-										<h3><?= get_the_date(__('M Y')); ?></h3>
+								<!-- Post item -->
+								<div class="post-item">
+									<div class="post-thumbnail">
+										<img src="<?= get_the_post_thumbnail_url()?>" alt="">
+										<div class="post-date">
+											<h2><?= get_the_date(__('j')); ?></h2>
+											<h3><?= get_the_date(__('M Y')); ?></h3>
+										</div>
 									</div>
-								</div>
-								<div class="post-content">
-									<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-									<div id="blog_posts" class="post-meta">
-										<a class="blog-post-comments" href=""><?= the_author(); ?></a>
-										<a class="blog-post-comments" href=""><?= the_tags()?></a>
-										<a class="blog-post-comments" href=""><?= get_comments_number(); ?> Comments</a>
+									<div class="post-content">
+										<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+										<div id="blog_posts" class="post-meta">
+											<a class="blog-post-comments" href=""><?= the_author(); ?></a>
+											<a class="blog-post-comments" href=""><?= the_tags()?></a>
+											<a class="blog-post-comments" href=""><?= get_comments_number(); ?> Comments</a>
+										</div>
+										<p><?= the_content(); ?></p>
+										<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
 									</div>
-									<p><?= the_content(); ?></p>
-									<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
 								</div>
 								<?php
-								endwhile;
+							endwhile;
 							endif;?>
-					</div>
+					<!-- Post item end -->
 					<!-- Pagination -->
 					<div class="page-pagination">
 						<a class="active" href="">01.</a>
