@@ -35,7 +35,8 @@
 										<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
 									</div>
 								</div>
-								<?php endwhile;
+								<?php
+							endwhile;
 							endif;?>
 					<!-- Post item end -->
 					<!-- Pagination -->
@@ -58,16 +59,12 @@
 					<div class="widget-item">
 						<h2 class="widget-title">Categories</h2>
 						<ul>
-							<li>
-								<a href="">
-									<?php
-										echo wp_list_categories([
-											'title_li' => '',
-											'hierarchical' => false,
-										]); 
-									?>
-								</a>
-							</li>
+							<li><a href="#">Vestibulum maximus</a></li>
+							<li><a href="#">Nisi eu lobortis pharetra</a></li>
+							<li><a href="#">Orci quam accumsan </a></li>
+							<li><a href="#">Auguen pharetra massa</a></li>
+							<li><a href="#">Tellus ut nulla</a></li>
+							<li><a href="#">Etiam egestas viverra </a></li>
 						</ul>
 					</div>
 					<!-- Single widget -->
