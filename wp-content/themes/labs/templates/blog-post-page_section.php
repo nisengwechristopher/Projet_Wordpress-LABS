@@ -3,60 +3,64 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-sm-7 blog-posts">
-					<!-- Single Post -->
-					<div class="single-post">
-						<div class="post-thumbnail">
-							<img src="<?= LABS_IMG . 'blog/blog-1'?>.jpg" alt="">
-							<div class="post-date">
-								<h2>03</h2>
-								<h3>Nov 2017</h3>
-							</div>
-						</div>
-						<div class="post-content">
-							<h2 class="post-title">Just a simple blog post</h2>
-							<div class="post-meta">
-								<a href="">Loredana Papp</a>
-								<a href="">Design, Inspiration</a>
-								<a href="">2 Comments</a>
-							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum, quam tincidunt venenatis ultrices, est libero mattis ante, ac consectetur diam neque eget quam. Etiam feugiat augue et varius blandit. Praesent mattis, eros a sodales commodo, justo ipsum rutrum mauris, sit amet egestas metus quam sed dolor. Sed consectetur, dui sed sollicitudin eleifend, arcu neque egestas lectus, sagittis viverra justo massa ut sapien. Aenean viverra ornare mauris eget lobortis. Cras vulputate elementum magna, tincidunt pharetra erat condimentum sit amet. Maecenas vitae ligula pretium, convallis magna eu, ultricies quam. In hac habitasse platea dictumst. </p>
-							<p>Fusce vel tempus nunc. Phasellus et risus eget sapien suscipit efficitur. Suspendisse iaculis purus ornare urna egestas imperdiet. Nulla congue consectetur placerat. Integer sit amet auctor justo. Pellentesque vel congue velit. Sed ullamcorper lacus scelerisque condimentum convallis. Sed ac mollis sem. </p>
-						</div>
-						<!-- Post Author -->
-						<div class="author">
-							<div class="avatar">
-								<img src="<?= LABS_IMG . 'avatar/03.jpg'?>" alt="">
-							</div>
-							<div class="author-info">
-								<h2>Lore Williams, <span>Author</span></h2>
-								<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
-							</div>
-						</div>
-						<!-- Post Comments -->
-						<div class="comments">
-							<h2>Comments (2)</h2>
-							<ul class="comment-list">
-								<li>
-									<div class="avatar">
-										<img src="<?= LABS_IMG . 'avatar/01.jpg'?>" alt="">
+					<?php
+						if ( have_posts() ) :
+							while ( have_posts() ) : the_post(); ?>
+								<!-- Post item -->
+								<div class="single-post">
+									<div class="post-thumbnail">
+										<img src="<?= get_the_post_thumbnail_url()?>" alt="">
+										<div class="post-date">
+											<h2><?= get_the_date(__('j')); ?></h2>
+											<h3><?= get_the_date(__('M Y')); ?></h3>
+										</div>
 									</div>
-									<div class="commetn-text">
-										<h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-										<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
+									<div class="post-content">
+										<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+										<div id="blog_posts" class="post-meta">
+											<a href=""><?= the_author(); ?></a>
+											<a href=""><?= the_tags()?></a>
+											<a href=""><?= get_comments_number(); ?> Comments</a>
+										</div>
+										<p><?= the_content(); ?></p>
 									</div>
-								</li>
-								<li>
-									<div class="avatar">
-										<img src="<?= LABS_IMG . 'avatar/02.jpg'?>" alt="">
+									<!-- Post Author -->
+									<div class="author">
+										<div class="avatar">
+											<img src="<?= get_avatar_url( get_the_author_ID()) ?>" alt="">
+										</div>
+										<div class="author-info">
+											<h2><?= get_the_author(); ?>, <span>Author</span></h2>
+											<p><?= get_the_author_description(); ?></p>
+										</div>
 									</div>
-									<div class="commetn-text">
-										<h3>Michael Smith | 03 nov, 2017 | Reply</h3>
-										<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
+									<!-- Post Comments -->
+									<div class="comments">
+										<h2>Comments (<?= get_comments_number(); ?>)</h2>
+										<!-- Recupération des commentaires de manière dynamique -->
+										<?php if ( get_comments_number() != 0 ) :
+													$post_comments = get_comments(['post_id' => $post->ID,]);
+													if ( $post_comments ) {
+														foreach($post_comments as $comment_each) { ?>
+															<ul class="comment-list">
+																<li>
+																	<div class="avatar">
+																		<img src="<?= get_avatar_url( comment_ID()) ?>" alt="">
+																	</div>
+																	<div class="commetn-text">
+																	<!-- Faut mettre le chemin pour repondre au commentaire .. vers un nouveau commentaire -->
+																		<h3><?= $comment_each->comment_author . ' | ' . get_the_date(__('j M, Y')) ?><a href="">| Reply</a></h3>
+																		<p><?= $comment_each->comment_content; ?></p>
+																	</div>
+																</li>
+															</ul>
+														<?php }
+													} ?>
+										<?php endif ?>
 									</div>
-								</li>
-							</ul>
-						</div>
+									<?php endwhile;
+						endif; ?>
+						
 						<!-- Commert Form -->
 						<div class="row">
 							<div class="col-md-9 comment-from">
@@ -78,9 +82,12 @@
 								</form>
 							</div>
 						</div>
+
+
 					</div>
 				</div>
-				<!-- Sidebar area -->
+
+					<!-- Sidebar area -->
 				<div class="col-md-4 col-sm-5 sidebar">
 					<!-- Single widget -->
 					<div class="widget-item">
@@ -93,37 +100,36 @@
 					<div class="widget-item">
 						<h2 class="widget-title">Categories</h2>
 						<ul>
-							<li><a href="#">Vestibulum maximus</a></li>
-							<li><a href="#">Nisi eu lobortis pharetra</a></li>
-							<li><a href="#">Orci quam accumsan </a></li>
-							<li><a href="#">Auguen pharetra massa</a></li>
-							<li><a href="#">Tellus ut nulla</a></li>
-							<li><a href="#">Etiam egestas viverra </a></li>
-						</ul>
-					</div>
-					<!-- Single widget -->
-					<div class="widget-item">
-						<h2 class="widget-title">Instagram</h2>
-						<ul class="instagram">
-							<li><img src="<?= LABS_IMG . 'instagram/1.jpg' ?>" alt=""></li>
-							<li><img src="<?= LABS_IMG . 'instagram/2.jpg' ?>" alt=""></li>
-							<li><img src="<?= LABS_IMG . 'instagram/3.jpg' ?>" alt=""></li>
-							<li><img src="<?= LABS_IMG . 'instagram/4.jpg' ?>" alt=""></li>
-							<li><img src="<?= LABS_IMG . 'instagram/5.jpg' ?>" alt=""></li>
-							<li><img src="<?= LABS_IMG . 'instagram/6.jpg' ?>" alt=""></li>
+							<li>
+								<a href="">
+							<!-- Recupérations des Categories de manière dynamique -->
+									<?php
+										echo wp_list_categories([
+											'title_li' => '',
+											'hierarchical' => false,
+										]); 
+									?>
+								</a>
+							</li>
 						</ul>
 					</div>
 					<!-- Single widget -->
 					<div class="widget-item">
 						<h2 class="widget-title">Tags</h2>
 						<ul class="tag">
-							<li><a href="">branding</a></li>
-							<li><a href="">identity</a></li>
-							<li><a href="">video</a></li>
-							<li><a href="">design</a></li>
-							<li><a href="">inspiration</a></li>
-							<li><a href="">web design</a></li>
-							<li><a href="">photography</a></li>
+							<!-- Recupérations des tags de manière dynamique -->
+							<?php
+								$my_query = new WP_Query ([
+									'post_type' => 'post',
+									'category_name' => '',
+									'orderby' => 'ASC',
+									]);
+								if($my_query->have_posts()) :
+									while ($my_query->have_posts() ) : $my_query->the_post();
+										echo the_tags('<ul><li>', '</li><li>', '</li></ul>');?>
+									<?php endwhile;
+								endif;
+							?>
 						</ul>
 					</div>
 					<!-- Single widget -->
@@ -145,4 +151,5 @@
 			</div>
 		</div>
 	</div>
-<!-- blog-post-page section end -->
+	<!-- page section end-->
+
