@@ -1116,14 +1116,14 @@ ul {
 	border-radius: 10px;
 }
 
-.post-meta .blog-post-comments {
+.post-meta a {
 	padding-top: 2px;
 }
-.post-meta .blog-post-comments:after{
+.post-meta a:after{
 	top: 7px;
 }
 /* me */
-.post-meta .blog-post-comments:after{
+.post-meta a:after{
 	top: 7px;
 }
 
@@ -1332,7 +1332,11 @@ ul {
 	font-size: 15px;
 	font-family: "Roboto", sans-serif;
 	margin-bottom: 30px;
-	font-weight: 600;
+	font-weight: 500;
+}
+/* me */
+.comment-list li .commetn-text h3 a{
+	color: #000000;
 }
 
 /* Contact page Map */

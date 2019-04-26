@@ -27,17 +27,18 @@
 									<div class="post-content">
 										<h2><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
 										<div id="blog_posts" class="post-meta">
-											<a class="blog-post-comments" href=""><?= the_author(); ?></a>
-											<a class="blog-post-comments" href=""><?= the_tags()?></a>
-											<a class="blog-post-comments" href=""><?= get_comments_number(); ?> Comments</a>
+											<a href=""><?= the_author(); ?></a>
+											<a href=""><?= the_tags()?></a>
+											<a href=""><?= get_comments_number(); ?> Comments</a>
 										</div>
-										<p><?= the_content(); ?></p>
+										<p><?= get_excerpt(); ?></p>
 										<a href="<?= get_permalink(); ?>" class="read-more">Read More</a>
 									</div>
 								</div>
 								<?php endwhile;
 							endif;?>
 					<!-- Post item end -->
+
 					<!-- Pagination -->
 					<div class="page-pagination">
 						<a class="active" href="">01.</a>
@@ -60,6 +61,7 @@
 						<ul>
 							<li>
 								<a href="">
+							<!-- Recupérations des Categories de manière dynamique -->
 									<?php
 										echo wp_list_categories([
 											'title_li' => '',
@@ -74,13 +76,19 @@
 					<div class="widget-item">
 						<h2 class="widget-title">Tags</h2>
 						<ul class="tag">
-							<li><a href="">branding</a></li>
-							<li><a href="">identity</a></li>
-							<li><a href="">video</a></li>
-							<li><a href="">design</a></li>
-							<li><a href="">inspiration</a></li>
-							<li><a href="">web design</a></li>
-							<li><a href="">photography</a></li>
+							<!-- Recupérations des tags de manière dynamique -->
+							<?php
+								$my_query = new WP_Query ([
+									'post_type' => 'post',
+									'category_name' => '',
+									'orderby' => 'ASC',
+									]);
+								if($my_query->have_posts()) :
+									while ($my_query->have_posts() ) : $my_query->the_post();
+										echo the_tags('<ul><li>', '</li><li>', '</li></ul>');?>
+									<?php endwhile;
+								endif;
+							?>
 						</ul>
 					</div>
 					<!-- Single widget -->
