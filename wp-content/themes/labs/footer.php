@@ -6,13 +6,14 @@
           <!-- contact info -->
           <div class="col-md-5 col-md-offset-1 contact-info col-push">
             <div class="section-title left">
-              <h2>Contact us</h2>
+              <h2><?= get_theme_mod('setting-footer-title'); ?></h2>
             </div>
-            <p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
+            <p><?= get_theme_mod('setting-footer-us'); ?></p>
             <h3 class="mt60">Main Office</h3>
             <p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
             <p class="con-item">0034 37483 2445 322</p>
-            <p class="con-item">hello@company.com</p>
+            <button class="customize-partial-edit-shortcut-button"></button>
+            <p class="con-item"><?= get_theme_mod('setting-footer-mail'); ?></p>
           </div>
           <!-- contact form -->
           <div class="col-md-6 col-pull">

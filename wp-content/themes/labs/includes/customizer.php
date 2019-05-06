@@ -391,10 +391,66 @@ add_theme_support('post-thumbnails');
             'settings' => 'setting-maps',
             'label' => __('Modification de la Géolocalisation. Copier le lien qui permet d\'intégrer une carte directement de google maps'),
             'type' => 'textarea'
-    ]);
-
-
+        ]);
     }
+
+
+
+    /**
+     * Personnalisation du footer
+     * Le contenu de type texte devient modifiable
+     * ..trouver le moyen de reprendre l'adresse à partir de la carte google 
+     */
+
+     public static function modification_footer($wp_customize) {
+
+        // Panel - personnalisation dans le fichier google_maps.php
+        $wp_customize->add_panel('panel-footer', [
+            'title' => __('Modification en bas de page'),
+            'description' => __('Modification dans Conact, google maps'),
+        ]);
+
+        // Section de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_section('section-footer',[
+            'panel' => 'panel-footer',
+            'title' => __('Personnalisation du contenu de type texte'),
+            'description' => __('Personnalisation du contenu de type texte'),
+        ]);
+
+        // Sections de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_setting('setting-footer-title', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-footer-us', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-footer-mail', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Controls de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_control('control-footer-titre',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-title',
+            'label' => __('Personnalisation du contenu à propos, le titre de la partie à propos'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-footer-us',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-us',
+            'label' => __('Personnalisation du contenu à propos, quelques mots sur nous'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-footer-mail',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-mail',
+            'label' => __('Personnalisation du contenu à propos, quelques mots sur nous'),
+            'type' => 'textarea'
+        ]);
+     }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);
@@ -402,3 +458,4 @@ add_theme_support('post-thumbnails');
  add_action('customize_register', [labsCustomizer::class, 'modification_services']);
  add_action('customize_register', [labsCustomizer::class, 'modification_team']);
  add_action('customize_register', [labsCustomizer::class, 'modification_maps']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_footer']);
