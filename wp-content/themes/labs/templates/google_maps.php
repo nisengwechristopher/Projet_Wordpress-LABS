@@ -1,2 +1,4 @@
 	<!-- Google map -->
-	<div class="map" id="map-area"></div>
+	<div id="map-area">
+		<?= get_theme_mod('setting-maps'); ?>
+	</div>

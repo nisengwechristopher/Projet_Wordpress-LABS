@@ -183,8 +183,6 @@ add_theme_support('post-thumbnails');
 
 
 
-
-
     /**
      * 
      * Personnalisation de la section testimonials, le contenu type textes.
@@ -355,9 +353,52 @@ add_theme_support('post-thumbnails');
             'type' => 'textarea'
         ]);
     }
+
+
+
+  /**
+     * 
+     * Personnalisation de la section google maps
+     * selon le lieu choisi par l'utilisateur.
+     * La page de reference == templates/google_maps.php.
+     * 
+     */
+    public static function modification_maps ($wp_customize) {
+
+        // Panel - personnalisation dans le fichier google_maps.php
+        $wp_customize->add_panel('panel-maps', [
+            'title' => __('Modification de la localisation'),
+            'description' => __('Modification dans Conact, google maps'),
+        ]);
+
+        // Section de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_section('section-maps',[
+            'panel' => 'panel-maps',
+            'title' => __('Personnalisation de la Géolocalisation'),
+            'description' => __('Modification de la Géolocalisation'),
+        ]);
+
+
+        // Section de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_setting('setting-maps', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+
+        // Control de personnalisation de la localisation : google_maps.php
+        $wp_customize->add_control('control-maps',[
+            'section' => 'section-maps',
+            'settings' => 'setting-maps',
+            'label' => __('Modification de la Géolocalisation. Copier le lien qui permet d\'intégrer une carte directement de google maps'),
+            'type' => 'textarea'
+    ]);
+
+
+    }
  }
  add_action('customize_register', [labsCustomizer::class, 'modification_header']);
  add_action('customize_register', [labsCustomizer::class, 'modification_about']);
  add_action('customize_register', [labsCustomizer::class, 'modification_testimonial']);
  add_action('customize_register', [labsCustomizer::class, 'modification_services']);
  add_action('customize_register', [labsCustomizer::class, 'modification_team']);
+ add_action('customize_register', [labsCustomizer::class, 'modification_maps']);

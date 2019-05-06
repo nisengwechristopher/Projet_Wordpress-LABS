@@ -37,7 +37,6 @@
 									<!-- Post Comments -->
 									<div class="comments">
 										<h2>Comments (<?= get_comments_number(); ?>)</h2>
-										<!-- Recupération des commentaires de manière dynamique -->
 										<?php if ( get_comments_number() != 0 ) :
 													$post_comments = get_comments(['post_id' => $post->ID,]);
 													if ( $post_comments ) {

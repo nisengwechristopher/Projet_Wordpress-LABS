@@ -93,11 +93,21 @@
 					</div>
 					<!-- Single widget -->
 					<div class="widget-item">
-						<h2 class="widget-title">Quote</h2>
-						<div class="quote">
-							<span class="quotation">‘​‌‘​‌</span>
-							<p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. Sed lacinia turpis at ultricies vestibulum.</p>
-						</div>
+						<?php
+						$my_query = new WP_Query ([
+							'post_type' => 'post',
+							'category_name' => 'quote',
+							'posts_per_page' => 1,
+							]);
+							if($my_query->have_posts()) :
+								while ($my_query->have_posts() ) : $my_query->the_post();?>
+								<h2 class="widget-title">Quote</h2>
+								<div class="quote">
+									<span class="quotation">‘​‌‘​‌</span>
+									<p><?= the_content(); ?></p>
+								</div>
+								<?php endwhile;
+							endif;?>
 					</div>
 					<!-- Single widget -->
 					<div class="widget-item">

@@ -30,3 +30,10 @@ color: black;
 #blog_posts{
     display: inline-flex;
 }
+
+/* affichage de la carte dans google_maps.php. Le i frame est fourni par le get_theme_mod*/
+
+iframe {
+    width: 100%;
+    height: 750px;
+}
