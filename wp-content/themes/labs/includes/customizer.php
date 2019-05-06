@@ -430,6 +430,18 @@ add_theme_support('post-thumbnails');
             'type' => 'theme_mod',
             'transport' => 'refresh',
         ]);
+        $wp_customize->add_setting('setting-footer-address-street', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-footer-address-city', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
+        $wp_customize->add_setting('setting-footer-number', [
+            'type' => 'theme_mod',
+            'transport' => 'refresh',
+        ]);
 
         // Controls de personnalisation de la localisation : google_maps.php
         $wp_customize->add_control('control-footer-titre',[
@@ -448,6 +460,24 @@ add_theme_support('post-thumbnails');
             'section' => 'section-footer',
             'settings' => 'setting-footer-mail',
             'label' => __('Personnalisation du contenu à propos, quelques mots sur nous'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-footer-address-street',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-address-street',
+            'label' => __('Personnalisation de l\'adresse : RUE'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-footer-address-city',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-address-city',
+            'label' => __('Personnalisation de l\'adresse : VILLE'),
+            'type' => 'textarea'
+        ]);
+        $wp_customize->add_control('control-footer-number',[
+            'section' => 'section-footer',
+            'settings' => 'setting-footer-number',
+            'label' => __('Personnalisation du numéro de contact'),
             'type' => 'textarea'
         ]);
      }

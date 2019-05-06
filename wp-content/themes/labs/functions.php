@@ -35,3 +35,10 @@
         $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
         return $excerpt;
     }
+
+
+/**
+ * Créer une function pour ajouter le bouton de modification devant tout le contenu modifiable afin de donner un visuel.
+ * Avec le js .. quand la page est en mode modifiable, tout le contenu modifiable change de couleur !!!!!
+ */
+// <code>

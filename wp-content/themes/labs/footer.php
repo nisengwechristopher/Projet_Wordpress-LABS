@@ -10,9 +10,8 @@
             </div>
             <p><?= get_theme_mod('setting-footer-us'); ?></p>
             <h3 class="mt60">Main Office</h3>
-            <p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
-            <p class="con-item">0034 37483 2445 322</p>
-            <button class="customize-partial-edit-shortcut-button"></button>
+            <p class="con-item"><?= get_theme_mod('setting-footer-address-street')?><br><?= get_theme_mod('setting-footer-address-city')?></p>
+            <p class="con-item"><?= get_theme_mod('setting-footer-number')?></p>
             <p class="con-item"><?= get_theme_mod('setting-footer-mail'); ?></p>
           </div>
           <!-- contact form -->
