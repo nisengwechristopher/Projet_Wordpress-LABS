@@ -21,7 +21,7 @@ color: black;
 }
 
 /* display none pour le formulaire de concatec sur les pages blogs */
-.pages_blog .contact-section{
+.remove_footer_contact .contact-section{
     display: none;
 }
 
@@ -36,4 +36,54 @@ color: black;
 iframe {
     width: 100%;
     height: 750px;
+}
+
+/** style pour la page de confirmation de l'addresse pour la Newsletter */
+#subscribers {
+    background-color: #8A26BB;
+    height: 100%;
+    width: 100%;
+}
+.subscriber-section {
+    margin: auto;
+    padding-top: 20em;
+    width: 50%;
+    text-align: center;
+}
+.subscriber-section h2 {
+    color: #ebe5f2;
+}
+    .subscriber-section p {
+        padding: 1.5% 0;
+        color: #ebe5f2;
+}
+    .subscriber-section a {
+        color: #6A22B5;
+}
+    #subscribers .congrats {
+        width: 100%;
+        height: 30px;
+}
+    #subscribers .footer-section {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+}
+.fa-check {
+    color: #6A22B5;
+}
+/** media queries */
+@media screen and (max-width: 680px) {
+    .subscriber-section {
+        padding-top: 13em;
+    }
+    .subscriber-section h2 {
+        font-size: 1.875rem;
+    }
+    .subscriber-section p {
+        font-size: 1rem;
+    }
+    .subscriber-section a {
+        font-size: 1.2rem;
+    }
 }

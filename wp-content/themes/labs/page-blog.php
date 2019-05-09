@@ -1,4 +1,4 @@
-<div class="pages_blog">
+<div class="remove_footer_contact">
     <?php
         get_header();
         get_template_part('templates/page_header');
