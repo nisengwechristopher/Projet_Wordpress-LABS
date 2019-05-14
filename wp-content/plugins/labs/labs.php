@@ -10,7 +10,12 @@ Author: Nisengwe Christopher
 Version: 0.1.0
 */
 
+/**
+ * `Variables globales
+ * 
+ */
 
+$plugin_url = WP_PLUGIN_URL . '/labs';
 
 /**
  * La Newsletter va regroupper tous les mails des utilisateurs du site et permet à l'admin de communiquer avec eux.
@@ -20,8 +25,20 @@ Version: 0.1.0
 
 class add_custom_pages {
 
+    /** Création de la page pour gérer les icones */
+    public static function icons_page() {
+        add_menu_page(
+            'icones',
+            'Icones',
+            'manage_options',
+            'icones-slug',
+            [self::class, 'icones_mamagement'],
+            'dashicons-admin-customizer',
+            '26');
+    }
+
     /** Création de la page pour gérer les Newsletters */
-    function newsletter_page() {
+    public static function newsletter_page() {
         add_menu_page(
             'newsletter',
             'Newsletter',
@@ -32,7 +49,7 @@ class add_custom_pages {
             '26');
     }
     /** Création de la page pour gérer les Newsletters */
-    function emails_page() {
+    public static function emails_page() {
         add_menu_page(
             'emails',
             'Emails',
@@ -43,88 +60,66 @@ class add_custom_pages {
             '26');
     }
 
-/**
- * VIEWS FUNCTIONS
- */
+    /**
+     * Functions permettent d'afficher les pages selon les droits definies dans les functions du dessus > les add_menu_page.
+     * Elle affiche en récupérant les views dans le dir views. Pour les icones, la newsletter et les mails.
+     * 
+     * IMPORTANT LA CONDITION 'manage_options' CORRESPOND AU DROITS LISTÉ PLUS HAUT DANS LES ADD_MENU_PAGE.
+     * 
+     */
 
-    /** Function pour afficher le contenu de la page Emails */
-    function newsletter_management() {
+    /** Function pour afficher le contenu de la page Newsletter */
+    public static function newsletter_management() {
         if ( !current_user_can( 'manage_options' ) )  {
             wp_die( __( 'Vous n\'avez pas de consulter cette page.' ) );
         }
-        ?>
-        <div class="wrap">
-            <h1>Newsletter Settings</h1>
-
-            <form method="post" action="options.php" novalidate="novalidate">
-                <input type="hidden" name="option_page" value="general">
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" id="_wpnonce" name="_wpnonce" value="d4d3f8b751">
-                <input type="hidden" name="_wp_http_referer" value="/Projet_Wordpress-LABS/wp-admin/options-general.php">
-                <table class="form-table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <label for="default_role">New User Default Role</label>
-                            </th>
-                            <td>
-                                <select name="default_role" id="default_role">
-                                    <option selected="selected" value="subscriber"><?= __('New Subscriber') ?></option>
-                                    <option value="contributor"><?= __('Already Subscribed') ?></option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="submit">
-                    <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
-                </p>
-            </form>
-        </div>
-    <?php }
+        //permet d'utiliser la variable globale dans le fichier récupéré par la function require
+        global $plugin_url;
+        require( 'views/newsletter-wrapper.php' );
+        }
 
 
     /** Function pour afficher le contenu de la page Emails */
-    function email_mamagement (){
+    public static function email_mamagement (){
         if ( !current_user_can( 'manage_options' ) )  {
             wp_die( __( 'Vous n\'avez pas de consulter cette page.' ) );
         }
-        ?>
-        <div class="wrap">
-            <h1>Mail Settings</h1>
+        //permet d'utiliser la variable globale dans le fichier récupéré par la function require
+        global $plugin_url;
+        require( 'views/email-wrapper.php' );
+        }
 
-            <form method="post" action="options.php" novalidate="novalidate">
-                <input type="hidden" name="option_page" value="general">
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" id="_wpnonce" name="_wpnonce" value="d4d3f8b751">
-                <input type="hidden" name="_wp_http_referer" value="/Projet_Wordpress-LABS/wp-admin/options-general.php">
-                <table class="form-table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                <label for="default_role">New User Default Role</label>
-                            </th>
-                            <td>
-                                <select name="default_role" id="default_role">
-                                    <option selected="selected" value="subscriber">Subscriber</option>
-                                    <option value="contributor">Contributor</option>
-                                    <option value="author">Author</option>
-                                    <option value="editor">Editor</option>
-                                    <option value="administrator">Administrator</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="submit">
-                    <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes">
-                </p>
-            </form>
-        </div>
-        <p><?= get_template_directory_uri()?></p>
 
-    <?php }
+    /** Function pour afficher le contenu de la page Icones */
+    public static function icones_mamagement () {
+        if ( !current_user_can( 'manage_options' ) )  {
+            wp_die( __( 'Vous n\'avez pas de consulter cette page.' ) );
+        }
+        //permet d'utiliser la variable globale dans le fichier récupéré par la function require
+        global $plugin_url;
+        require( 'views/icon-wrapper.php' );
+        }
 }
 
 add_action('admin_menu', [add_custom_pages::class,'newsletter_page']);
 add_action('admin_menu', [add_custom_pages::class, 'emails_page']);
+add_action('admin_menu', [add_custom_pages::class, 'icons_page']);
+
+
+
+
+
+
+
+/**
+ * 
+ * Function pour ajouter le style s'appliquant dans l'environement du plugin.
+ * 
+ */
+
+class pluginStyle {
+    public static function plugin_style () {
+        wp_enqueue_style('personal-plugin-style', WP_PLUGIN_URL . '/labs/assets/css/cn-plugin-style.css');
+    }
+}
+add_action('admin_menu', [pluginStyle::class, 'plugin_style']);

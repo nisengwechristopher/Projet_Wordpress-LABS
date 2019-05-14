@@ -15,7 +15,7 @@ class enqueueScripts {
         wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/vendor/css/magnific-popup.css');
         wp_enqueue_style('owl', get_template_directory_uri() . '/vendor/css/owl.carousel.css');
         wp_enqueue_style('style', get_template_directory_uri() . '/vendor/css/style.css');
-        wp_enqueue_style('personal-style', get_template_directory_uri() . '/vendor/css/personal-style.css');
+        wp_enqueue_style('personal-theme-style', get_template_directory_uri() . '/vendor/css/cn-theme-style.css');
 
         // ========== Javascripts & Jquery ==========
 

@@ -69,7 +69,8 @@ add_theme_support('post-thumbnails');
             ]
         ));
         $wp_customize->add_control(new WP_Customize_Image_Control (
-            $wp_customize, 'setting-header-image-2', [
+            $wp_customize, 'setting-header-image-2',
+            [
                 'section' => 'section-header-images',
                 'label' => __('Modification de l\'image n°2 du caroussel' ),
             ]
