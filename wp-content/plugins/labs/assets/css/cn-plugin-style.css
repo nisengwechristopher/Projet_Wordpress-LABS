@@ -1,0 +1,81 @@
+/**
+* The plugin style goes here
+*/
+
+/**
+* Style pour l'afichage des posts dans le fichier icon-wrapper.php
+* Affichage des posts de type services dans le 'Admin Menu > Newsletter'.
+*/
+
+/* Overriding wordpress style classes */
+#wpwrap {
+    background-image: url("/Projet_Wordpress-LABS/wp-content/plugins/labs/img/overlay.png");
+}
+
+
+
+.postbox {
+    height: 80vh;
+    overflow: scroll;
+}
+.description{
+    font-style: italic;
+    margin-left: 1.2rem;
+}
+.posts{
+    border: 1px solid #e5e5e5;
+    border-radius: .1rem;
+    box-sizing: border-box;
+    padding: .2rem;
+    margin: .2rem;
+}
+
+.posts .content {
+    width: 100%;
+    display: inline-flex;
+}
+
+.posts .content p{
+    margin:0.1rem;
+}
+.posts .content .icon{
+    width: 33%;
+    text-align: right;
+}
+
+
+
+.posts .post-title {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.postbox-container {
+    height: 80vh;
+    overflow: scroll;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    background-color: #ffffff;
+}
+
+
+.icon-container ul {
+    margin-top: 4rem;
+    list-style: none;
+}
+
+.icon-container ul li{
+    margin-bottom: 2.5rem;
+    color: #26c794;
+}
+
+.icon-container ul li:hover{
+    color: #000000;
+    cursor: pointer;
+}
+
+
+.icon-container ul li span{
+    margin-left: 2rem;
+    vertical-align: top;
+}

@@ -49,6 +49,7 @@ iframe {
     padding-top: 20em;
     width: 50%;
     text-align: center;
+    background-image: url("/Projet_Wordpress-LABS/wp-content/themes/labs/img/overlay.png");
 }
 .subscriber-section h2 {
     color: #ebe5f2;

@@ -20,7 +20,9 @@
             <div class="col-md-4 col-sm-6">
               <div class="service">
                 <div class="icon">
-                  <i class="flaticon-037-idea"></i>
+                  <?php
+                  if ('');
+                  ?>
                 </div>
                 <div class="service-text">
                 <h2><a class="post_links" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>

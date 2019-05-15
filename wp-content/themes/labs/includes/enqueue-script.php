@@ -9,8 +9,7 @@ class enqueueScripts {
         
         // Stylesheets
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/vendor/css/bootstrap.min.css');
-        wp_enqueue_style('font-awesome', get_template_directory_uri() . '/vendor/css/font-awesome.min.css' );
-        wp_enqueue_style('font-awesome-allmin', get_template_directory_uri() . '/vendor/fontawesome-free/css/all.css ');
+        wp_enqueue_style('fontawesome-free-all', get_template_directory_uri() . '/vendor/fontawesome-free/css/all.css ');
         wp_enqueue_style('flaticon', get_template_directory_uri() .  '/vendor/css/flaticon.css');
         wp_enqueue_style('magnific-popup', get_template_directory_uri() . '/vendor/css/magnific-popup.css');
         wp_enqueue_style('owl', get_template_directory_uri() . '/vendor/css/owl.carousel.css');

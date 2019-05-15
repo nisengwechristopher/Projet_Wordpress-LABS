@@ -11,11 +11,15 @@ Version: 0.1.0
 */
 
 /**
- * `Variables globales
- * 
+ * Variables globales
+ * Utilié dans par les functions newsletter/icones/mails_management
+ * .. afin de l'envoyer sur les pages dans views
  */
 
 $plugin_url = WP_PLUGIN_URL . '/labs';
+
+
+
 
 /**
  * La Newsletter va regroupper tous les mails des utilisateurs du site et permet à l'admin de communiquer avec eux.
@@ -109,8 +113,6 @@ add_action('admin_menu', [add_custom_pages::class, 'icons_page']);
 
 
 
-
-
 /**
  * 
  * Function pour ajouter le style s'appliquant dans l'environement du plugin.
@@ -120,6 +122,8 @@ add_action('admin_menu', [add_custom_pages::class, 'icons_page']);
 class pluginStyle {
     public static function plugin_style () {
         wp_enqueue_style('personal-plugin-style', WP_PLUGIN_URL . '/labs/assets/css/cn-plugin-style.css');
+        wp_enqueue_style('fontawesome-plugin', WP_PLUGIN_URL . '/labs/assets/fontawesome-free/css/all.css');
+        wp_enqueue_style('flaticon-plugin', WP_PLUGIN_URL . '/labs/assets/css/flaticon.css');
     }
 }
 add_action('admin_menu', [pluginStyle::class, 'plugin_style']);
